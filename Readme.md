@@ -1,7 +1,7 @@
 # Проект «Киноман» [![Build status][travis-image]][travis-url]
 
-* Студент: [Неопознанный енот](https://up.htmlacademy.ru/ecmascript/13/user/1661469).
-* Наставник: `Неизвестно`.
+* Студент: [Елизавета Ананьева-Рященко](https://up.htmlacademy.ru/ecmascript/13/user/1661469).
+* Наставник: `Илья Локалин`.
 
 ---
 
