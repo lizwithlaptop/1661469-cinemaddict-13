@@ -8,4 +8,4 @@ export const createMainNavigationTemplate = () => {
     </div>
     <a href="#stats" class="main-navigation__additional">Stats</a>
   </nav>`;
-}
+};

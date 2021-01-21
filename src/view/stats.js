@@ -45,4 +45,4 @@ export const createStatsTemplate = () => {
     </div>
 
   </section>`;
-}
+};
