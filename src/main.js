@@ -8,9 +8,14 @@ import {createFilmCardTemplate} from './view/film-card';
 import {createShowMoreTemplate} from './view/show-more';
 import {createFooterStatsTemplate} from './view/footer-stats';
 import {createFilmDetailsTemplate} from './view/film-details';
+import {generateFilmCard} from './mock/film-card';
 
 const TASK_COUNT = 5;
 const TASK_COUNT_EXTRA = 2;
+const FILMS_MOCK_COUNT = 20;
+
+// Генерация списка фильмов
+const filmsList = new Array(FILMS_MOCK_COUNT).fill().map(generateFilmCard);
 
 // Функция рендера
 const render = (container, template, position) => {
