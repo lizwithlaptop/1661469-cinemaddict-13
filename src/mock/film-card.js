@@ -1,18 +1,18 @@
 import {getRandomInteger} from '../utils/utils';
 
 const generatePoster = () => {
-  const path = '../../markup/images/posters/';
+  const path = '/images/posters/';
   const posters = [
-    'made-for-each-other',
-    'popeye-meets-sinbad',
-    'sagebrush-trail',
-    'santa-claus-conquers-the-martians',
-    'the-dance-of-life',
-    'the-great-flamarion',
-    'the-man-with-the-golden-arm'
+    'made-for-each-other.png',
+    'popeye-meets-sinbad.png',
+    'sagebrush-trail.jpg',
+    'santa-claus-conquers-the-martians.jpg',
+    'the-dance-of-life.jpg',
+    'the-great-flamarion.jpg',
+    'the-man-with-the-golden-arm.jpg'
   ];
 
-  return `${path}${posters[getRandomInteger(0, posters.length - 1)]}.png`;
+  return `${path}${posters[getRandomInteger(0, posters.length - 1)]}`;
 };
 
 const generateTitle = () => {
@@ -34,14 +34,14 @@ const generateRating = () => {
 };
 
 const generateReleaseDate = () => {
-  return `${getRandomInteger(1,31)}.${getRandomInteger(1,12)}.${getRandomInteger(1940,2020)}`;
+  return new Date(getRandomInteger(1920, 2020), getRandomInteger(1, 12), getRandomInteger(1, 31));
 };
 
 const generateDuration = () => {
   return `${getRandomInteger(90, 180)} min`;
 };
 
-const generateGenres = () => {
+const generateGenre = () => {
   const genres = ['Action', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Mystery', 'Romance', 'Thriller'];
 
   return genres[getRandomInteger(0, genres.length - 1)];
@@ -74,7 +74,7 @@ const generateDescription = () => {
     randomDescription.push(`${descriptions[randomIndex]} `);
   }
 
-  return randomDescription;
+  return randomDescription.join(' ');
 };
 
 const generateCommentsCount = () => {
@@ -146,7 +146,7 @@ export const generateFilmCard = () => {
     rating: generateRating(),
     releaseDate: generateReleaseDate(),
     duration: generateDuration(),
-    genres: generateGenres(),
+    genre: generateGenre(),
     description: generateDescription(),
     commentsCount: generateCommentsCount(),
     originalTitle: generateTitle(),

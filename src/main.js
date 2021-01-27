@@ -10,12 +10,12 @@ import {createFooterStatsTemplate} from './view/footer-stats';
 import {createFilmDetailsTemplate} from './view/film-details';
 import {generateFilmCard} from './mock/film-card';
 
-const TASK_COUNT = 5;
-const TASK_COUNT_EXTRA = 2;
+const FILM_CARDS_COUNT = 5;
+const FILM_CARDS_COUNT_EXTRA = 2;
 const FILMS_MOCK_COUNT = 20;
 
 // Генерация списка фильмов
-const filmsList = new Array(FILMS_MOCK_COUNT).fill().map(generateFilmCard);
+const films = new Array(FILMS_MOCK_COUNT).fill().map(generateFilmCard);
 
 // Функция рендера
 const render = (container, template, position) => {
@@ -44,8 +44,8 @@ render(filmsElement, createFilmsListTemplate('All movies. Upcoming'), 'beforeend
 
 const filmsListContainerElement = filmsElement.querySelector('.films-list__container');
 
-for (let i = 0; i < TASK_COUNT; i++) {
-  render(filmsListContainerElement, createFilmCardTemplate(), 'beforeend');
+for (let i = 0; i < FILM_CARDS_COUNT; i++) {
+  render(filmsListContainerElement, createFilmCardTemplate(films[i]), 'beforeend');
 }
 
 // Рендер кнопки Show more
@@ -56,8 +56,8 @@ render(filmsElement, createFilmsListTemplate('Top rated', 'films-list--extra'), 
 
 const filmsTopRatedContainerElement = filmsElement.querySelectorAll('.films-list--extra')[0];
 
-for (let i = 0; i < TASK_COUNT_EXTRA; i++) {
-  render(filmsTopRatedContainerElement, createFilmCardTemplate(), 'beforeend');
+for (let i = 0; i < FILM_CARDS_COUNT_EXTRA; i++) {
+  render(filmsTopRatedContainerElement, createFilmCardTemplate(films[i]), 'beforeend');
 }
 
 // Рендер списка Most commented фильмов
@@ -65,8 +65,8 @@ render(filmsElement, createFilmsListTemplate('Most commented', 'films-list--extr
 
 const filmsMostCommentedContainerElement = filmsElement.querySelectorAll('.films-list--extra')[1];
 
-for (let i = 0; i < TASK_COUNT_EXTRA; i++) {
-  render(filmsMostCommentedContainerElement, createFilmCardTemplate(), 'beforeend');
+for (let i = 0; i < FILM_CARDS_COUNT_EXTRA; i++) {
+  render(filmsMostCommentedContainerElement, createFilmCardTemplate(films[i]), 'beforeend');
 }
 
 // Рендер количества фильмов
