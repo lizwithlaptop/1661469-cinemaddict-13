@@ -50,7 +50,7 @@ const createCommentsSectionTemplate = (comments) => {
       </label>
 
       <div class="film-details__emoji-list">
-        ${['smile', 'sleeping', 'puke', 'angry'].map((emotion) => createEmotionTemplate(emotion)).join(``)}
+        ${[`smile`, `sleeping`, `puke`, `angry`].map((emotion) => createEmotionTemplate(emotion)).join(``)}
       </div>
     </div>
   </section>`;
@@ -83,31 +83,31 @@ export const createFilmDetailsTemplate = (film, comments = []) => {
   //
   const controls = [
     {
-      caption: 'Add to watchlist',
-      modifier: 'watchlist',
+      caption: `Add to watchlist`,
+      modifier: `watchlist`,
       state: isWatchlisted
     },
     {
-      caption: 'Already watched',
-      modifier: 'watched',
+      caption: `Already watched`,
+      modifier: `watched`,
       state: isAlreadyWatched
     },
     {
-      caption: 'Add to favorites',
-      modifier: 'favorite',
+      caption: `Add to favorites`,
+      modifier: `favorite`,
       state: isFavorite
     }
   ];
   //
   const controlsTemplate = controls.map(
-    ({caption, modifier, state}) => `
+      ({caption, modifier, state}) => `
         <input type="checkbox" class="film-details__control-input visually-hidden" id=${modifier} name=${modifier} ${state ? `checked` : ``}>
         <label for=${modifier} class="film-details__control-label film-details__control-label--${modifier}">${caption}</label>
-    `
+      `
   ).join(``);
   //
   const commentsSectionTemplate = createCommentsSectionTemplate(comments);
-  
+  //
   return `<section class="film-details">
     <form class="film-details__inner" action="" method="get">
       <div class="film-details__top-container">
