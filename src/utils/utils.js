@@ -34,8 +34,8 @@ const getShortDescription = (description, length) => {
     : description;
 };
 
-const getControlStateClass = (controlState = false, className = '') => {
-  return controlState ? className : '';
+const getControlStateClass = (controlState = false, className = ``) => {
+  return controlState ? className : ``;
 };
 
 export {

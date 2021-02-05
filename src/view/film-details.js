@@ -29,17 +29,17 @@ const createEmotionTemplate = (emotion) => {
   return `<input class="film-details__emoji-item visually-hidden" name="comment-emoji" type="radio" id="emoji-${emotion}" value=${emotion}>
     <label class="film-details__emoji-label" for="emoji-${emotion}">
       <img src="./images/emoji/${emotion}.png" width="30" height="30" alt="emoji">
-    </label>`
+    </label>`;
 };
 
 const createCommentsSectionTemplate = (comments) => {
   const COMMENTS_COUNT = comments.length;
-  
+  //
   return `<section class="film-details__comments-wrap">
     <h3 class="film-details__comments-title">Comments <span class="film-details__comments-count">${COMMENTS_COUNT}</span></h3>
 
     <ul class="film-details__comments-list">
-      ${comments.map(comment => createCommentTemplate(comment)).join('')}
+      ${comments.map((comment) => createCommentTemplate(comment)).join(``)}
     </ul>
 
     <div class="film-details__new-comment">
@@ -50,7 +50,7 @@ const createCommentsSectionTemplate = (comments) => {
       </label>
 
       <div class="film-details__emoji-list">
-        ${['smile', 'sleeping', 'puke', 'angry'].map(emotion => createEmotionTemplate(emotion)).join('')}
+        ${['smile', 'sleeping', 'puke', 'angry'].map((emotion) => createEmotionTemplate(emotion)).join(``)}
       </div>
     </div>
   </section>`;
@@ -58,30 +58,29 @@ const createCommentsSectionTemplate = (comments) => {
 
 export const createFilmDetailsTemplate = (film, comments = []) => {
   const {
-          poster,
-          title,
-          originalTitle,
-          rating,
-          director,
-          writers,
-          cast,
-          releaseDate,
-          duration,
-          country,
-          genres,
-          description,
-          rated,
-          isWatchlisted,
-          isAlreadyWatched,
-          isFavorite
-        } = film;
+    poster,
+    title,
+    originalTitle,
+    rating,
+    director,
+    writers,
+    cast,
+    releaseDate,
+    duration,
+    country,
+    genres,
+    description,
+    rated,
+    isWatchlisted,
+    isAlreadyWatched,
+    isFavorite
+  } = film;
 
   const isAFewGenres = genres.length > 1;
-  
   const genresTemplate = genres.map(
-    (genre, index) => `<span class="film-details__genre">${genre}${index === genres.length - 1 ? '' : ','}</span>`
-  ).join('');
-  
+      (genre, index) => `<span class="film-details__genre">${genre}${index === genres.length - 1 ? `` : `,`}</span>`
+  ).join(``);
+  //
   const controls = [
     {
       caption: 'Add to watchlist',
@@ -99,16 +98,16 @@ export const createFilmDetailsTemplate = (film, comments = []) => {
       state: isFavorite
     }
   ];
-
+  //
   const controlsTemplate = controls.map(
     ({caption, modifier, state}) => `
-      <input type="checkbox" class="film-details__control-input visually-hidden" id=${modifier} name=${modifier} ${state ? 'checked' : ''}>
-      <label for=${modifier} class="film-details__control-label film-details__control-label--${modifier}">${caption}</label>
+        <input type="checkbox" class="film-details__control-input visually-hidden" id=${modifier} name=${modifier} ${state ? `checked` : ``}>
+        <label for=${modifier} class="film-details__control-label film-details__control-label--${modifier}">${caption}</label>
     `
-  ).join('');
-  
+  ).join(``);
+  //
   const commentsSectionTemplate = createCommentsSectionTemplate(comments);
-
+  
   return `<section class="film-details">
     <form class="film-details__inner" action="" method="get">
       <div class="film-details__top-container">
@@ -135,13 +134,13 @@ export const createFilmDetailsTemplate = (film, comments = []) => {
             </div>
 
             <table class="film-details__table">
-              ${createDetailTemplate('Director', director)}
-              ${createDetailTemplate('Writers', writers)}
-              ${createDetailTemplate('Actors', cast)}
-              ${createDetailTemplate('Release Date', formatReleaseDate(releaseDate))}
-              ${createDetailTemplate('Runtime', formatDuration(duration))}
-              ${createDetailTemplate('Country', country)}
-              ${createDetailTemplate(isAFewGenres ? 'Genres' : 'Genre', genresTemplate)}
+              ${createDetailTemplate(`Director`, director)}
+              ${createDetailTemplate(`Writers`, writers)}
+              ${createDetailTemplate(`Actors`, cast)}
+              ${createDetailTemplate(`Release Date`, formatReleaseDate(releaseDate))}
+              ${createDetailTemplate(`Runtime`, formatDuration(duration))}
+              ${createDetailTemplate(`Country`, country)}
+              ${createDetailTemplate(isAFewGenres ? `Genres` : `Genre`, genresTemplate)}
             </table>
 
             <p class="film-details__film-description">

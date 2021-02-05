@@ -1,11 +1,11 @@
 import {getReleaseYear, formatDuration, getShortDescription, getControlStateClass} from '../utils/utils';
 
 export const createFilmCardTemplate = (film) => {
-  const { poster, title, rating, releaseDate, duration, genres, description, commentsCount, isWatchlisted, isAlreadyWatched, isFavorite } = film;
-  
-  const CONTROLS_ACTIVE_CLASS_NAME = 'film-card__controls-item--active';
+  const {poster, title, rating, releaseDate, duration, genres, description, commentsCount, isWatchlisted, isAlreadyWatched, isFavorite} = film;
+  //
+  const CONTROLS_ACTIVE_CLASS_NAME = `film-card__controls-item--active`;
   const SHORT_DESC_LENGTH = 140;
-  
+  //
   return `<article class="film-card">
     <h3 class="film-card__title">${title}</h3>
     <p class="film-card__rating">${rating}</p>
