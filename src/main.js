@@ -8,14 +8,14 @@ import {createFilmCardTemplate} from './view/film-card';
 import {createShowMoreTemplate} from './view/show-more';
 import {createFooterStatsTemplate} from './view/footer-stats';
 import {createFilmDetailsTemplate} from './view/film-details';
-import {generateFilmCard} from './mock/film-card';
+import {generateFilm} from './mock/film';
 
 const FILM_CARDS_COUNT = 5;
 const FILM_CARDS_COUNT_EXTRA = 2;
 const FILMS_MOCK_COUNT = 20;
 
 // Генерация списка фильмов
-const films = new Array(FILMS_MOCK_COUNT).fill().map(generateFilmCard);
+const films = new Array(FILMS_MOCK_COUNT).fill().map(generateFilm);
 
 // Функция рендера
 const render = (container, template, position) => {
@@ -73,4 +73,4 @@ for (let i = 0; i < FILM_CARDS_COUNT_EXTRA; i++) {
 render(siteFooterElement, createFooterStatsTemplate(), 'beforeend');
 
 // Рендер дополнительной информации о фильме
-// render(siteFooterElement, createFilmDetailsTemplate(), 'afterend');
+render(siteFooterElement, createFilmDetailsTemplate(films[0]), 'afterend');

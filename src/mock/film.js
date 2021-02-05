@@ -38,13 +38,24 @@ const generateReleaseDate = () => {
 };
 
 const generateDuration = () => {
-  return `${getRandomInteger(90, 180)} min`;
+  return getRandomInteger(90, 180);
 };
 
-const generateGenre = () => {
+const generateGenres = () => {
   const genres = ['Action', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Mystery', 'Romance', 'Thriller'];
+  
+  const GENRE_COUNT = 3;
+  
+  const randomLength = getRandomInteger(1, GENRE_COUNT);
+  const randomGenres = [];
 
-  return genres[getRandomInteger(0, genres.length - 1)];
+  for (let i = 0; i < randomLength; i++) {
+    const randomIndex = getRandomInteger(0, genres.length - 1);
+    
+    randomGenres.push(genres[randomIndex]);
+  }
+  
+  return randomGenres;
 };
 
 const generateDescription = () => {
@@ -98,7 +109,7 @@ const generateDirector = () => {
 const generateWriters = () => {
   const writers = [
     'Jo Swerling, Rose Franken',
-    'Unknown',
+    'Some Unknown Writers',
     'Lindsley Parsons, Lindsley Parsons',
     'Glenville Mareth, Paul L. Jacobson',
     'Benjamin Glazer, Arthur Hopkins',
@@ -139,14 +150,14 @@ const generateBoolean = () => {
   return Boolean(getRandomInteger(0, 1));
 }
 
-export const generateFilmCard = () => {
+export const generateFilm = () => {
   return {
     poster: generatePoster(),
     title: generateTitle(),
     rating: generateRating(),
     releaseDate: generateReleaseDate(),
     duration: generateDuration(),
-    genre: generateGenre(),
+    genres: generateGenres(),
     description: generateDescription(),
     commentsCount: generateCommentsCount(),
     originalTitle: generateTitle(),
